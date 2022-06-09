@@ -8,7 +8,7 @@ async function getMedias() {
             return res.json();
         })
         .then((datas) => {
-            // console.log(datas.media);
+             console.log(datas.media);
             return datas.media;
         }); 
 }
@@ -53,8 +53,11 @@ function mediaFactory(data) {
    
     const videos = `assets/medias/${photographerId}/${video} `;
     // console.log(videos)
+    // const priceDay = document.querySelector('.price-day');
+    // priceDay.innerHTML =  `${price} €/jour`;
+
     const priceDay = document.querySelector('.price-day');
-    priceDay.innerHTML =  `${price} €/jour`;
+    priceDay.innerHTML = `${photographer.price} euro/jour`
     
     /**
      * Fonction de la création des cartes des photographes
