@@ -108,9 +108,11 @@ async function displayMedia(medias) {
         const photographerModel = mediaFactory(media);
         // console.log(photographerModel)
         const userCardDOM = photographerModel.getUserCardDOM();
+        const userCardDOM1 = photographerModel.getUserCardLightbox();
         // console.log(userCardDOM)
         photographersSection.insertAdjacentHTML('beforeEnd', userCardDOM);
-        lightbox.insertAdjacentHTML('beforeEnd', userCardDOM);
+
+        lightbox.insertAdjacentHTML('beforeEnd', userCardDOM1);
     });
 }
 
@@ -163,7 +165,19 @@ function mediaFactory(data) {
                     </div>
                 </article>`
 
-    return { id, photographerId, title, image, video, likes, date, price, getUserCardDOM };
+                
+    const getUserCardLightbox = () => `
+                    <a href= "photographer.html?${photographerId}">
+                    ${video? `<video controls="controls" src="${videos}"></video>` 
+                    :
+                        `<img src="${picture}" alt="Photo de ${title}" id=${id}>` }
+
+                    </a>
+                    <h2>${title}</h2>
+    `
+
+
+    return { id, photographerId, title, image, video, likes, date, price, getUserCardDOM, getUserCardLightbox };
 }
 
 

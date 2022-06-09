@@ -316,7 +316,7 @@ textarea{
     /* display: none; */
     position: absolute;
     width: 50%;
-    height: auto;
+    height: 600px;
     padding: 20px 0;
     background-color: white;
 }
@@ -377,12 +377,32 @@ textarea{
     opacity: 0.6;
 }
 
-.lightbox_container img{
+/* .lightbox_container img{
     max-width: 100%;
     width: 450px;
     height: auto;
     object-fit: cover;
 }
+
+.lightbox_container video{
+    max-width: 100%;
+    width: 450px;
+    height: auto;
+} */
+
+.lightbox img{
+    max-width: 100%;
+    width: 450px;
+    height: auto;
+    object-fit: cover;
+}
+
+.lightbox video{
+    max-width: 100%;
+    width: 450px;
+    height: auto;
+}
+
 
   /**********Responsive***********/
   
