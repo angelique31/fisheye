@@ -75,7 +75,7 @@ header .logo{
     width: 350px;
 }
 
-.galleryPhotos article img {
+.galleryPhotos article img, video{
     height: 300px;
     width: 100%;
     object-fit: cover; 
@@ -89,13 +89,9 @@ header .logo{
     transform: scale(1.02);
 }
 
-.galleryPhotos article video {
-    height: 300px;
-    width: 100%;
-}
 
 .galleryPhotos h2{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #901C1C;
 }
@@ -109,7 +105,9 @@ header .logo{
 .galleryPhotos article .heart{
    cursor: pointer;
    transition: 0.5s;
+   font-size: 1.5rem;
 }
+
 
 .galleryPhotos article .heart:hover{
     color: #DB8876;
@@ -117,28 +115,6 @@ header .logo{
 
 .galleryPhotos article .heart:active{
     transform: scale(1.5);
-}
-/************Like and price*************/
-aside{
-    width: 376px;
-    height: 69px;
-    background: #DB8876;
-    border-radius: 5px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.price-day{
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
-.heart-fas{
-    width: 17.5px;
-    height: 18.35px;
 }
 
 
@@ -306,6 +282,8 @@ textarea{
     width: 100%;
 }
 
+
+
 .lightbox_container{
     position: relative;
     margin-left: 350px;
@@ -377,20 +355,26 @@ textarea{
     opacity: 0.6;
 }
 
-/* .lightbox_container img{
-    max-width: 100%;
+.lightbox_container img{
+    /* max-width: 100%; */
     width: 450px;
     height: auto;
     object-fit: cover;
+  /* visibility: hidden; */
+}
+
+.lightbox_container img .hidden{
+    /* display: none; */
+    visibility: hidden;
 }
 
 .lightbox_container video{
-    max-width: 100%;
+    /* max-width: 100%; */
     width: 450px;
     height: auto;
-} */
+}
 
-.lightbox img{
+/* .lightbox img{
     max-width: 100%;
     width: 450px;
     height: auto;
@@ -401,8 +385,39 @@ textarea{
     max-width: 100%;
     width: 450px;
     height: auto;
+} */
+
+
+/************Like and price*************/
+footer{
+    width: 376px;
+    height: 69px;
+    background: #DB8876;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 30px;
 }
 
+footer h4{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.price-day{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+ footer .heart-fas{
+    font-size: 1.5rem;
+    margin-right: 70px;
+}
 
   /**********Responsive***********/
   

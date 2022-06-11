@@ -1,23 +1,24 @@
-// const contactBtn = document.querySelector('.contact_button');
+// const article = document.querySelector('img');
+// console.log(article)
 const lightboxClose = document.querySelector('.lightbox_close');
-const lightbox = document.querySelector('.lightbox');
+const lightboxAppear = document.querySelector('.lightbox');
 
-// 
+ 
 /**
  * open modale
  */
 // function launchModal() {
-//     modalbg.style.display = 'block'; 
+//     article.style.display = 'block'; 
 // }
   
-// contactBtn.addEventListener('click', launchModal);
+// article.addEventListener('click', launchModal);
 
   
 /**
    * close modale
    */
 function closeModal() {
-    lightbox.style.display = 'none'; 
+    lightboxAppear.style.display = 'none'; 
 }
   
 lightboxClose.addEventListener('click', closeModal);

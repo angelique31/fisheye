@@ -1,4 +1,5 @@
 
+
 /**
  * Fonction pour récupérer les données des photographes
  * @returns 
@@ -55,7 +56,7 @@ function photographerFactory(data) {
     priceDay.innerHTML = `${price} €/jour`;
 
     const contact = document.querySelector('.contact');
-    contact.innerHTML = `Contactez moi ${name}`;
+    contact.innerHTML = `Contactez-moi ${name}`;
 
     
     /**
@@ -102,18 +103,24 @@ function photographerFactory(data) {
  */
 async function displayMedia(medias) {
     const photographersSection = document.querySelector('.galleryPhotos');
-    const lightbox = document.querySelector('.lightbox')
-    
+    const lightbox = document.querySelector('.lightbox_container')
+    let totalLikes = 0;
+
     medias.forEach((media) => {
         const photographerModel = mediaFactory(media);
-        // console.log(photographerModel)
         const userCardDOM = photographerModel.getUserCardDOM();
-        const userCardDOM1 = photographerModel.getUserCardLightbox();
-        // console.log(userCardDOM)
+        const userCardLightbox = photographerModel.getUserCardLightbox();
+
         photographersSection.insertAdjacentHTML('beforeEnd', userCardDOM);
 
-        lightbox.insertAdjacentHTML('beforeEnd', userCardDOM1);
+        lightbox.insertAdjacentHTML('beforeEnd', userCardLightbox);
+
+        totalLikes += media.likes;
+
+        const  total_likes = document.querySelector('#total_likes')
+        total_likes.innerHTML = totalLikes;
     });
+    ajoutLikes();
 }
 
 
@@ -137,12 +144,14 @@ initMedias();
  * @returns - getUserCardDOM
  */
 function mediaFactory(data) {
-    const { id, photographerId, title, image,video, likes, date, price } = data;
+    const { id, photographerId, title, image, video, likes, date, price } = data;
     
     const picture = `assets/medias/${photographerId}/${image} `;
    
     const videos = `assets/medias/${photographerId}/${video} `;
-        
+    
+    // const boutonPlus = document.querySelector('#bouton_plus');
+    
     
     /**
      * Fonction de la création des cartes des photographes
@@ -151,7 +160,7 @@ function mediaFactory(data) {
     const getUserCardDOM = () => `
                 <article>
                     <a href= "photographer.html?${photographerId}">
-                    ${video? `<video controls="controls" src="${videos}"></video>` 
+                    ${video? `<video src="${videos}"></video>` 
                     :
                         `<img src="${picture}" alt="Photo de ${title}" id=${id}>` }
  
@@ -181,7 +190,37 @@ function mediaFactory(data) {
 }
 
 
+function ajoutLikes() {
+    const likes = document.querySelectorAll(".fa-heart"); 
+    // console.log(likes);
+    likes.forEach((e) => {
+      e.addEventListener("click", function () {
+        // const nbreLike = e.parentElement.children[1];
+        const nbreLike = 0
+        nbreLike.textContent++;
+        total_likes.innerHTML++; // j'ajoute 1 au total des totalLikes du footer
+        
+      });
+    })
+}
+/*********************Lightbox********************************* */
+    window.onload = () => { 
+        const images = document.querySelectorAll('.lightbox_container img ');
+        console.log(images)
+        // let imagesActives = 0;
 
+        for (let i = 1; i < images.length; i+=1) {
+            images [i].classList.add('hidden')
+        }
+        
+        // lightboxClose.addEventListener('click', function () {
+        //     images[imagesActives].classList.add('hidden');
+        //     imagesActives += 1;
 
+        //     images[imagesActives].classList.remove('hidden');
+        // })
+    }
+ 
+    
 
 
