@@ -62,12 +62,150 @@ header .logo{
     margin-top: 70px;
     margin-left: 70px;
 }
+
+/***********Menu de tri***********/
+
+
+.sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+}
+
+
+
+.intro {
+    cursor: pointer;
+    background-color:  #901C1C;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 50px; 
+    padding-left: 20px;
+    gap: 30px;
+}
+
+.menucache {
+    width: 180px;
+    background-color:  #901C1C;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: modale;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    position: absolute;
+    z-index: -1;
+    margin-left: 50px;
+}
+
+.triage {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    cursor: pointer;
+    animation-name: modaleX;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    border-top: 1.5px solid white;
+    color: white;
+    transform-origin: bottom;
+    margin-bottom: 10px;   
+}
+
+.test2 .test3 {
+    animation-duration: 10000ms;
+    animation-fill-mode: forwards;
+    
+}
+
+.fa-chevron-up{
+    display: none;
+}
+
+.fa-chevron-down{
+    display: flex;
+}
+
+.test2, .test3{
+    padding-right: 90px;
+    padding-top: 10px;
+}
+
+
+.triage:hover {
+    background-color: #DB8876;;
+    color: black;
+}
+
+.menuderoulant {
+    position: relative;
+    z-index: 1;
+    width: 200px;
+}
+
+@keyframes modale {
+    from {
+         height: 0;
+    }
+    to {
+        height: 150px;
+    }
+}
+
+@keyframes modaleX {
+    from {
+         
+         opacity: 0;
+    }
+    to {
+        
+        opacity: 1;
+    }
+}
+
+@keyframes closeModale {
+    from {
+         
+        height: 150px;
+    }
+    to {
+        
+        height: 0px;
+
+    }
+}
+
+@keyframes closeModale2 {
+    from {
+         
+        height: 50px;
+        opacity: 1;
+    }
+    to {
+        
+        height: 0px;
+        opacity: 0;
+
+    }
+}
 /********Gallery photos***********/
 .galleryPhotos{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 70px;
-    margin-left: 100px;
+    margin: 70px 0 100px 100px;
     row-gap: 50px;
 }
 
@@ -91,7 +229,7 @@ header .logo{
 
 
 .galleryPhotos h2{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
     color: #901C1C;
 }
@@ -105,7 +243,7 @@ header .logo{
 .galleryPhotos article .heart{
    cursor: pointer;
    transition: 0.5s;
-   font-size: 1.5rem;
+   font-size: 1.3rem;
 }
 
 

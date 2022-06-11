@@ -106,6 +106,29 @@ async function displayMedia(medias) {
     const lightbox = document.querySelector('.lightbox_container')
     let totalLikes = 0;
 
+    // const menuSelect = document.querySelector(".intro");
+    // switch (
+    //     menuSelect.value // MISE EN PLACE DU TRIE
+    //   ) {
+    //     case "intro":
+    //       medias.sort(function (a, b) {
+    //         return b.likes - a.likes;
+    //       });
+    //       break;
+    
+    //     case "test1":
+    //       medias.sort(function (a, b) {
+    //         return new Date(b.date) - new Date(a.date);
+    //       });
+    //       break;
+    
+    //     case "test2":
+    //       medias.sort(function (a, b) {
+    //         return a.title.localeCompare(b.title);
+    //       });
+    //       break;
+    //   }
+
     medias.forEach((media) => {
         const photographerModel = mediaFactory(media);
         const userCardDOM = photographerModel.getUserCardDOM();
@@ -134,6 +157,11 @@ async function initMedias() {
     const media =  await medias.filter(media => media.photographerId == idRequest);
 
     displayMedia(media);
+
+    // const menuSelect = document.querySelector(".intro");
+    // menuSelect.onchange = function () {
+    //     displayMedia(media);
+    // };
 }
 initMedias();
 
@@ -221,6 +249,37 @@ function ajoutLikes() {
         // })
     }
  
-    
+    /**********Méthode de tri****** */
+
+const modal = document.querySelector(".menucache")
+const triage1 = document.querySelector(".test1")
+const triage2 = document.querySelector(".test2")
+const chevronUp = document.querySelector('.fa-chevron-up')
+const chevronDown = document.querySelector('.fa-chevron-down')
+
+function closed() {
+    modal.style.display = "none";
+}
+
+
+function displayModal() {
+    if (modal.style.display == "flex") {
+        modal.style.animationName = "closeModale";
+        triage1.style.animationName = "closeModale2";
+        triage2.style.animationName = "closeModale2";
+        setTimeout(closed, 500) 
+        chevronUp.style.display = 'none';
+        chevronDown.style.display = 'flex';
+                     
+    } else {
+        modal.style.display = "flex";
+        // console.log("ouverture")
+        modal.style.animationName = "modale";
+        triage1.style.animationName = "modaleX";
+        triage2.style.animationName = "modaleX";
+        chevronUp.style.display = 'flex';
+        chevronDown.style.display = 'none';
+    }
+}
 
 
